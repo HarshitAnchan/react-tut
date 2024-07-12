@@ -1,10 +1,11 @@
-import UserGreeting from "./UserGreeting";
-
+import Button from "./Button";
+import ProfilePicture from "./ProfilePicture";
 function App() {
 
 return(
       <>
-        <UserGreeting isLoggedIn={true} username = "Harshit"/>
+      <Button />
+      <ProfilePicture />
       </>
 
   );
