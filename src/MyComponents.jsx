@@ -4,33 +4,73 @@ function MyComponent(){
 
     const [name, setName] = useState("Guest");
 
-    const [age, setAge] = useState(0);
+    const [quantity, setQuantity] = useState();
 
-    const [isEmployed, setIsEmployed] = useState (false)
+    const [comment, setComment] = useState("");
 
-    const updateName = () =>{
-        setName("harshit")
+    const [payment , setPayment] = useState("");
+
+
+    const [shipping, setShipping] = useState("");
+
+    function handleNameChange(event){
+        setName(event.target.value);
     }
-    const incrementAge = () =>{
-        setAge(age+1);
+
+    function handleQuantityChange(event){
+        setQuantity(event.target.value);
+
     }
 
-    const toggleEmployedStatus =() =>{
-        setIsEmployed(!isEmployed);
-    } 
+    function handleCommentChange(event){
+        setComment(event.target.value);
+
+    }
+
+    function handlePaymentChange(event){
+        setPayment(event.target.value)
+    }
+
+    function handleShippingChange(event){
+        setShipping(event.target.value)
+    }
 
     return(
-        <div>
-             <p>Name: {name}</p>
-             <button onClick={updateName}>Set Name</button>
+            <div>
+                <input value= {name} onChange={handleNameChange}/>
+                    <p> Name: {name}</p>           
+                    <input value={quantity} onChange={handleQuantityChange} type ="number"/>
+                    <p>Quantity: {quantity}</p>
+                    <textarea value={comment} onChange={handleCommentChange} placeholder ="Enter delivery instructions"/>
+                    <p>Comment: {comment}</p>
+                    <select value={payment} onChange={handlePaymentChange}>
+                        <option value="">Select an Option</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Gpay">Gpay</option>
+                        <option value="Giftcard">Gift Card</option>
+                        </select>
+                    <p> Payment: {payment}</p>
 
-             <p>Age: {age}</p>
-             <button onClick={incrementAge}>Increment Age</button>
+                    <label>
+                    <input type="radio" value="Pick Up"
+                        checked = {shipping === "Pick  Up"}
+                        onChange={handleShippingChange}/>
+                    Pick Up
+                    </label><br/>
 
-             <p>Is employed: {isEmployed ? "Yes": "No"}</p>
-             <button onClick={toggleEmployedStatus}>Toggle Status</button>
 
-        </div>
+                    <label>
+                    <input type="radio" value="Delivery"
+                        checked = {shipping === "Delivery"}
+                        onChange={handleShippingChange}
+                    />
+
+                     Delivery  
+                    </label>
+                    <p> Shipping: {shipping}</p>
+           
+           
+            </div>
     )
 
 }

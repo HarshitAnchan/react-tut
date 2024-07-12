@@ -5,7 +5,8 @@ function App() {
 
 return(
       <>
-       <Counter />
+       {/* <Counter /> */}
+       <MyComponent />
       </>
 
   );
